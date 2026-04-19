@@ -1,8 +1,8 @@
 //=---------------------------------------------------------------------------=
 //=   Build:                                                                  =
 //=            MinGW: gcc tcpCliTestWin.c -lws2_32 -o tcpCliTestWin           =
-//=            Borland: bcc32 tcpServer.c                                     =
-//=            Visual C: cl tcpServer.c wsock32.lib                           =
+//=            Borland: bcc32 tcpCliTestWin.c                                 =
+//=            Visual C: cl tcpCliTestWin.c wsock32.lib                       =
 //=---------------------------------------------------------------------------=
 
 #include <stdio.h>          // Needed for printf()
