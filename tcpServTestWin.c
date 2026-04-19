@@ -74,7 +74,8 @@ int main(){
     ret = recv(cli_sockfd, in_buf, sizeof(in_buf), 0);
 
     if (ret < 0){
-      printf("Client Disconnected: Server Closed \n");
+      puts("Client Disconnected");
+      puts("Server Closed");
       exit(-1);
     }
 
