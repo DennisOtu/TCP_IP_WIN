@@ -5,8 +5,6 @@
 //=            Visual C: cl tcpServer.c wsock32.lib                           =
 //=---------------------------------------------------------------------------=
 
-
-
 #include <stdio.h>          // Needed for printf()
 #include <string.h>         // Needed for memcpy() and strcpy()
 #include <stdlib.h>         // Needed for exit()

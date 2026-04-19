@@ -5,8 +5,6 @@
 //=            Visual C: cl tcpServer.c wsock32.lib                           =
 //=---------------------------------------------------------------------------=
 
-
-
 #include <stdio.h>          // Needed for printf()
 #include <string.h>         // Needed for memcpy() and strcpy()
 #include <stdlib.h>         // Needed for exit()
@@ -62,7 +60,7 @@ int main(){
 
     ret = send(sockfd, out_buf, (strlen(out_buf) + 1), 0);
     if (ret < 0){
-      printf("*** ERROR - send() failed \n");
+      printf("*** ERROR failed to send message \n");
       exit(-1);
     }
     
@@ -71,7 +69,7 @@ int main(){
     // Receive from the server using the client socket
     ret = recv(sockfd, in_buf, sizeof(in_buf), 0);
     if (ret < 0){
-      printf("*** ERROR - recv() failed \n");
+      printf("*** ERROR - Server not responding \n");
       exit(-1);
     }
     // Output the received message
