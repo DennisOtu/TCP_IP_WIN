@@ -9,7 +9,6 @@
 #include <string.h>         // Needed for memcpy() and strcpy()
 #include <stdlib.h>         // Needed for exit()
 #include <windows.h>      // Needed for all Winsock stuff
-#include <stdbool.h>
 
 #define  PORT_NUM         2000   // Port number used at the server
 #define  IP_ADDR    "127.0.0.1"  // IP address of server (*** HARDWIRED ***)
@@ -46,7 +45,7 @@ int main(){
   memset(in_buf, 0, 4096);
   memset(out_buf, 0, 4096);
   
-  while (true){
+  while (1){
     printf("Enter message (type 'exit' to close): ");
     fgets(in_buf, 4096, stdin);
     // Remove new line character if present

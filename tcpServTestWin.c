@@ -9,7 +9,6 @@
 #include <string.h>         // Needed for memcpy() and strcpy()
 #include <stdlib.h>         // Needed for exit()
 #include <windows.h>      // Needed for all Winsock stuff
-#include <stdbool.h>    
 
 #define  PORT_NUM   2000    // Arbitrary port number for the server
 
@@ -30,8 +29,7 @@ int main(){
   // Create a welcome socket
   //   - AF_INET is Address Family Internet and SOCK_STREAM is streams
   sockfd = socket(AF_INET, SOCK_STREAM, 0);
-  if (sockfd < 0)
-  {
+  if (sockfd < 0){
     printf("*** ERROR - socket() failed \n");
     exit(-1);
   }
@@ -69,7 +67,7 @@ int main(){
   memset(in_buf, 0, 4096);
   memset(out_buf, 0, 4096);
 
-  while (true){
+  while (1){
     // Receive from the client using the connect socket
     ret = recv(cli_sockfd, in_buf, sizeof(in_buf), 0);
 
@@ -95,15 +93,13 @@ int main(){
   }
   // Close the sockets
   ret = closesocket(sockfd);
-  if (ret < 0)
-  {
+  if (ret < 0){
     printf("*** ERROR - closesocket() failed \n");
     exit(-1);
   }
   
   ret = closesocket(cli_sockfd);
-  if (ret < 0)
-  {
+  if (ret < 0){
     printf("*** ERROR - closesocket() failed \n");
     exit(-1);
   }
