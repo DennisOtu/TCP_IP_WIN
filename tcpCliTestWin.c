@@ -15,7 +15,7 @@
 #define BUF_SIZE 4096
 
 int main(){
-  WORD wVersionRequested = MAKEWORD(1,1);       // For WSA functions
+  WORD wVersionRequested = MAKEWORD(2, 2);       // For WSA functions
   WSADATA wsaData;                              // For WSA functions
   int                  sockfd;        
   struct sockaddr_in   serv_addr;     

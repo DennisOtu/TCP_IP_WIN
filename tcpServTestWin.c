@@ -11,8 +11,6 @@
 #include <ws2tcpip.h>
 #include <process.h> // For _beginthreadex
 
-#pragma comment(lib, "ws2_32.lib")
-
 #define PORT 2000
 #define BUF_SIZE 4096
 
@@ -91,7 +89,7 @@ int main() {
     return 1;
   }
 
-  printf("Server started \nListening on port %d\n", PORT );
+  printf("Server started \nListening on port %d\n", PORT);
 
   // Accept loop
   while (1) {
@@ -117,7 +115,6 @@ int main() {
       CloseHandle(hThread);
     }
   }
-
   closesocket(sockfd);
   WSACleanup();
   return 0;
