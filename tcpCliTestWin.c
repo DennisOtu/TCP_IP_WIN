@@ -10,8 +10,8 @@
 #include <stdlib.h>         // Needed for exit()
 #include <windows.h>      // Needed for all Winsock stuff
 
-#define  PORT_NUM         2000   // Port number used at the server
-#define  IP_ADDR    "127.0.0.1"  // IP address of server (*** HARDWIRED ***)
+#define  PORT         2000   // Port number used at the server
+#define  SERV_IP    "127.0.0.1"  // IP address of server (*** HARDWIRED ***)
 #define BUF_SIZE 4096
 
 int main(){
@@ -25,7 +25,7 @@ int main(){
   // Initialize winsock
   WSAStartup(wVersionRequested, &wsaData);
   // Create a client socket
-  //   - AF_INET is Address Family Internet and SOCK_STREAM is streams
+  // AF_INET is Address Family Internet and SOCK_STREAM is streams
   sockfd = socket(AF_INET, SOCK_STREAM, 0);
   if (sockfd < 0){
     printf("*** ERROR - socket() failed \n");
@@ -33,8 +33,8 @@ int main(){
   }
 
   serv_addr.sin_family = AF_INET;                 
-  serv_addr.sin_port = htons(PORT_NUM);           
-  serv_addr.sin_addr.s_addr = inet_addr(IP_ADDR); 
+  serv_addr.sin_port = htons(PORT);           
+  serv_addr.sin_addr.s_addr = inet_addr(SERV_IP); 
 
   ret = connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
 
