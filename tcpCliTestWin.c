@@ -12,14 +12,15 @@
 
 #define  PORT_NUM         2000   // Port number used at the server
 #define  IP_ADDR    "127.0.0.1"  // IP address of server (*** HARDWIRED ***)
+#define BUF_SIZE 4096
 
 int main(){
   WORD wVersionRequested = MAKEWORD(1,1);       // For WSA functions
   WSADATA wsaData;                              // For WSA functions
   int                  sockfd;        
   struct sockaddr_in   serv_addr;     
-  char                 out_buf[4096];   
-  char                 in_buf[4096];  
+  char                 out_buf[BUF_SIZE];   
+  char                 in_buf[BUF_SIZE];  
   int                  ret;        
   // Initialize winsock
   WSAStartup(wVersionRequested, &wsaData);
@@ -42,12 +43,12 @@ int main(){
     exit(-1);
   }
 
-  memset(in_buf, 0, 4096);
-  memset(out_buf, 0, 4096);
+  memset(in_buf, 0, BUF_SIZE);
+  memset(out_buf, 0, BUF_SIZE);
   
   while (1){
     printf("Enter message (type 'exit' to close): ");
-    fgets(in_buf, 4096, stdin);
+    fgets(in_buf, BUF_SIZE, stdin);
     // Remove new line character if present
     in_buf[strcspn(in_buf, "\n")] = '\0';
 
@@ -63,8 +64,8 @@ int main(){
       exit(-1);
     }
     
-    memset(in_buf, 0 , 4096);
-    memset(out_buf, 0, 4096);
+    memset(in_buf, 0 , BUF_SIZE);
+    memset(out_buf, 0, BUF_SIZE);
     // Receive from the server using the client socket
     ret = recv(sockfd, in_buf, sizeof(in_buf), 0);
     if (ret < 0){
